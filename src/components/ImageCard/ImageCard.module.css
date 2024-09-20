@@ -1,0 +1,30 @@
+.imagecard {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.imgList {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  background-color: rgba(197, 197, 237, 0.9);
+  transform: translateY(100%);
+  transition: transform 200ms linear;
+}
+.imagecard:hover .imgList {
+  transform: translateY(0%);
+}
+.imgItem {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: rgba(8, 123, 238, 0.7);
+  padding: 4px 8px;
+  font-size: 16px;
+}
