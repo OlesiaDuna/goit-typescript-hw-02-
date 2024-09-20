@@ -1,12 +1,19 @@
 import css from "./ImageCard.module.css";
 import { PiUserFocus } from "react-icons/pi";
 import { FaGrinHearts } from "react-icons/fa";
+import { Photo } from "../../types/photo";
 
-const ImageCard = ({ img, openModal }) => {
+interface Props {
+  img: Photo;
+  openModal: (url: string, alt: string) => void;
+}
+const ImageCard = ({ img, openModal }: Props) => {
   return (
     <div
       className={css.imagecard}
-      onClick={() => openModal(img.urls.regular, img.alt_description)}
+      onClick={(): void => {
+        openModal(img.urls.regular, img.alt_description);
+      }}
     >
       <img src={img.urls.small} alt={img.alt_description} />
       <ul className={css.imgList}>

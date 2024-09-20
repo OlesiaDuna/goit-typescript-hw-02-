@@ -1,6 +1,13 @@
+import { ChangeEvent, FormEvent } from "react";
 import css from "./SearchBar.module.css";
 
-const SearchBar = ({ onSubmit }) => {
+interface Props {
+  onSubmit: (e: FormEvent<HTMLFormElement>) => void;
+  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  search: string;
+}
+
+const SearchBar = ({ onSubmit, onChange, search }: Props) => {
   return (
     <header className={css.header}>
       <form onSubmit={onSubmit} className={css.form}>
@@ -11,6 +18,8 @@ const SearchBar = ({ onSubmit }) => {
           autoComplete="off"
           autoFocus
           placeholder="Search images and photos"
+          value={search}
+          onChange={onChange}
         />
         <button className={css.button} type="submit">
           Search

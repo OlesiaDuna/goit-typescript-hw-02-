@@ -2,7 +2,18 @@ import Modal from "react-modal";
 
 Modal.setAppElement("#root");
 
-const customStyles = {
+interface CustomStyles {
+  content: {
+    top: string;
+    left: string;
+    right: string;
+    bottom: string;
+    marginRight: string;
+    transform: string;
+  };
+}
+
+const customStyles: CustomStyles = {
   content: {
     top: "50%",
     left: "50%",
@@ -12,7 +23,14 @@ const customStyles = {
     transform: "translate(-50%, -50%)",
   },
 };
-const ImageModal = ({ modalIsOpen, closeModal, src, alt }) => {
+interface Props {
+  modalIsOpen: boolean;
+  closeModal: () => void;
+  // closeModal (): void;
+  src: string;
+  alt: string;
+}
+const ImageModal = ({ modalIsOpen, closeModal, src, alt }: Props) => {
   return (
     <>
       <Modal
